@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-
+import sys
+from collections import defaultdict
 from datetime import datetime
 import json
 import os
@@ -44,21 +45,32 @@ def fix(orig: dict) -> dict:
     data = convert_values(data)
     return {
         "date": orig["Date"],
-        "serial": orig["serial"],
-        "name": orig["uName"],
-        "data": data,
+        **data,
     }
 
-def unite(path: Path, outfile: Path) -> None:
-    dataset = []
+
+def unite(path: Path, outdir: Path) -> None:
+    gadgets = defaultdict(list)
     for file in os.listdir(path):
-        print(f"Processing {file}")
+        print(f"Reading {file}")
+        if Path(file).is_dir():
+            continue
         with open(path / file, "r") as fp:
             data = json.load(fp)
         for v in data.values():
-            dataset.append(fix(v))
-    dataset.sort(key=lambda x: datetime.strptime(x["date"], "%Y-%m-%d %H:%M:%S"))
-    with outfile.open("w") as fp:
-        json.dump(dataset, fp, ensure_ascii=False)
+            assert "uName" in v
+            gadgets[v["uName"]].append(fix(v))
 
-unite(Path("loaded").resolve(), Path("dataset.json"))
+    os.makedirs(outdir, exist_ok=True)
+
+    for gadget_name, values in gadgets.items():
+        if sys.platform == 'win32':
+            gadget_name = gadget_name.encode('cp1251').decode('utf-8')
+        print(f"Processing {gadget_name}")
+        values.sort(key=lambda x: datetime.strptime(x["date"], "%Y-%m-%d %H:%M:%S"))
+        outfile = outdir / f"{gadget_name}.json"
+        with outfile.open("w") as fp:
+            json.dump(values, fp, ensure_ascii=False)
+
+
+unite(Path("../raw_data").resolve(), Path("../datasets").resolve())

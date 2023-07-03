@@ -1,5 +1,6 @@
 .vscode/
+.idea/
 .venv/
-loaded/
+raw_data/
 .ruff_cache/
 dataset.json

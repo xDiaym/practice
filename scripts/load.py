@@ -1,4 +1,4 @@
-#!/usr/bin/env/ python3
+#!/usr/bin/env python3
 from datetime import datetime, timedelta
 import json
 from pathlib import Path
@@ -6,9 +6,9 @@ from typing import Any
 import requests
 
 
-START = datetime(year=2022, month=7, day=6)
-N_DAYS = 4 * 7
-DIR = Path(__file__).resolve().parent / "loaded"
+START = datetime(year=2022, month=7, day=31)
+N_DAYS = 6
+DIR = Path(__file__).resolve().parent / "raw_data"
 DIR.mkdir(parents=True, exist_ok=True)
 
 BASE_URL = "http://webrobo.mgul.ac.ru:3000/db_api_REST/calibr"
