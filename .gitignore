@@ -3,4 +3,5 @@
 .venv/
 raw_data/
 .ruff_cache/
+.ipynb_checkpoints
 dataset.json
