@@ -1,0 +1,312 @@
+[
+    {
+        "date": "2022-07-01 14:00:00",
+        "temperature": 22,
+        "pressure": 752
+    },
+    {
+        "date": "2022-07-01 22:00:00",
+        "temperature": 19,
+        "pressure": 753
+    },
+    {
+        "date": "2022-07-02 14:00:00",
+        "temperature": 25,
+        "pressure": 752
+    },
+    {
+        "date": "2022-07-02 22:00:00",
+        "temperature": 23,
+        "pressure": 751
+    },
+    {
+        "date": "2022-07-03 14:00:00",
+        "temperature": 29,
+        "pressure": 749
+    },
+    {
+        "date": "2022-07-03 22:00:00",
+        "temperature": 25,
+        "pressure": 749
+    },
+    {
+        "date": "2022-07-04 14:00:00",
+        "temperature": 30,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-04 22:00:00",
+        "temperature": 24,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-05 14:00:00",
+        "temperature": 24,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-05 22:00:00",
+        "temperature": 19,
+        "pressure": 749
+    },
+    {
+        "date": "2022-07-06 14:00:00",
+        "temperature": 29,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-06 22:00:00",
+        "temperature": 23,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-07 14:00:00",
+        "temperature": 31,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-07 22:00:00",
+        "temperature": 19,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-08 14:00:00",
+        "temperature": 23,
+        "pressure": 751
+    },
+    {
+        "date": "2022-07-08 22:00:00",
+        "temperature": 20,
+        "pressure": 750
+    },
+    {
+        "date": "2022-07-09 14:00:00",
+        "temperature": 22,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-09 22:00:00",
+        "temperature": 21,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-10 14:00:00",
+        "temperature": 29,
+        "pressure": 744
+    },
+    {
+        "date": "2022-07-10 22:00:00",
+        "temperature": 18,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-11 14:00:00",
+        "temperature": 32,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-11 22:00:00",
+        "temperature": 28,
+        "pressure": 744
+    },
+    {
+        "date": "2022-07-12 14:00:00",
+        "temperature": 25,
+        "pressure": 744
+    },
+    {
+        "date": "2022-07-12 22:00:00",
+        "temperature": 21,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-13 14:00:00",
+        "temperature": 23,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-13 22:00:00",
+        "temperature": 20,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-14 14:00:00",
+        "temperature": 23,
+        "pressure": 741
+    },
+    {
+        "date": "2022-07-14 22:00:00",
+        "temperature": 18,
+        "pressure": 740
+    },
+    {
+        "date": "2022-07-15 14:00:00",
+        "temperature": 23,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-15 22:00:00",
+        "temperature": 19,
+        "pressure": 744
+    },
+    {
+        "date": "2022-07-16 14:00:00",
+        "temperature": 22,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-16 22:00:00",
+        "temperature": 18,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-17 14:00:00",
+        "temperature": 21,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-17 22:00:00",
+        "temperature": 19,
+        "pressure": 749
+    },
+    {
+        "date": "2022-07-18 14:00:00",
+        "temperature": 20,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-18 22:00:00",
+        "temperature": 16,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-19 14:00:00",
+        "temperature": 20,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-19 22:00:00",
+        "temperature": 18,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-20 14:00:00",
+        "temperature": 20,
+        "pressure": 741
+    },
+    {
+        "date": "2022-07-20 22:00:00",
+        "temperature": 17,
+        "pressure": 741
+    },
+    {
+        "date": "2022-07-21 14:00:00",
+        "temperature": 21,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-21 22:00:00",
+        "temperature": 17,
+        "pressure": 745
+    },
+    {
+        "date": "2022-07-22 14:00:00",
+        "temperature": 25,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-22 22:00:00",
+        "temperature": 22,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-23 14:00:00",
+        "temperature": 28,
+        "pressure": 748
+    },
+    {
+        "date": "2022-07-23 22:00:00",
+        "temperature": 23,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-24 14:00:00",
+        "temperature": 28,
+        "pressure": 745
+    },
+    {
+        "date": "2022-07-24 22:00:00",
+        "temperature": 23,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-25 14:00:00",
+        "temperature": 27,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-25 22:00:00",
+        "temperature": 19,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-26 14:00:00",
+        "temperature": 29,
+        "pressure": 743
+    },
+    {
+        "date": "2022-07-26 22:00:00",
+        "temperature": 22,
+        "pressure": 745
+    },
+    {
+        "date": "2022-07-27 14:00:00",
+        "temperature": 31,
+        "pressure": 745
+    },
+    {
+        "date": "2022-07-27 22:00:00",
+        "temperature": 25,
+        "pressure": 745
+    },
+    {
+        "date": "2022-07-28 14:00:00",
+        "temperature": 27,
+        "pressure": 746
+    },
+    {
+        "date": "2022-07-28 22:00:00",
+        "temperature": 20,
+        "pressure": 747
+    },
+    {
+        "date": "2022-07-29 14:00:00",
+        "temperature": 23,
+        "pressure": 750
+    },
+    {
+        "date": "2022-07-29 22:00:00",
+        "temperature": 18,
+        "pressure": 750
+    },
+    {
+        "date": "2022-07-30 14:00:00",
+        "temperature": 22,
+        "pressure": 752
+    },
+    {
+        "date": "2022-07-30 22:00:00",
+        "temperature": 18,
+        "pressure": 751
+    },
+    {
+        "date": "2022-07-31 14:00:00",
+        "temperature": 23,
+        "pressure": 750
+    },
+    {
+        "date": "2022-07-31 22:00:00",
+        "temperature": 19,
+        "pressure": 751
+    }
+]

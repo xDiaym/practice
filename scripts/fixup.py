@@ -64,10 +64,12 @@ def unite(path: Path, outdir: Path) -> None:
     os.makedirs(outdir, exist_ok=True)
 
     for gadget_name, values in gadgets.items():
-        if sys.platform == 'win32':
-            gadget_name = gadget_name.encode('cp1251').decode('utf-8')
+        if sys.platform == "win32":
+            gadget_name = gadget_name.encode("cp1251").decode("utf-8")
         print(f"Processing {gadget_name}")
-        values.sort(key=lambda x: datetime.strptime(x["date"], "%Y-%m-%d %H:%M:%S"))
+        values.sort(
+            key=lambda x: datetime.strptime(x["date"], "%Y-%m-%d %H:%M:%S")
+        )
         outfile = outdir / f"{gadget_name}.json"
         with outfile.open("w") as fp:
             json.dump(values, fp, ensure_ascii=False)
