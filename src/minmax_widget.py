@@ -19,7 +19,6 @@ class MinMaxWidget(QWidget):
         self.setLayout(self._layout)
 
         canvas = FigureCanvas(Figure())
-        canvas.figure.autofmt_xdate(rotation=70)
         self._ax = canvas.figure.subplots()
 
         df_min, df_mean, df_max = aggregate(series, freq)
@@ -27,6 +26,7 @@ class MinMaxWidget(QWidget):
         self._ax.fill_between(df_mean.index, df_min, df_max, alpha=0.5)
         self._ax.plot(df_mean, c="orange")
         self._ax.set_ylabel(label)
-        self._ax.tick_params(axis="x", labelrotation=70)
+
+        canvas.figure.autofmt_xdate(rotation=70)
 
         self._layout.addWidget(canvas)

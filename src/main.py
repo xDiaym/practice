@@ -5,6 +5,7 @@ import pandas as pd
 from PySide6 import QtWidgets
 from PySide6.QtWidgets import QMenuBar, QTabWidget
 
+from src.boxplot_widget import BoxplotWidget
 from src.heat_perception_widget import HeatPerceptionWidget
 from src.minmax_widget import MinMaxWidget
 from src.pt_scatter_widget import PTScatterWidget
@@ -31,6 +32,7 @@ class ApplicationWindow(QtWidgets.QMainWindow):
             MinMaxWidget("Temperature ($^\circ$C)", df.BME280_temp),
             "MinMax",
         )
+        self._main.addTab(BoxplotWidget(df), "Boxplot")
         df = df.resample("12h").mean()
         self._main.addTab(
             HeatPerceptionWidget(df.BME280_temp, df.BME280_humidity),
