@@ -1,30 +1,27 @@
 import sys
-import time
 
-import numpy as np
+from PySide6 import QtWidgets
+from PySide6.QtWidgets import QWidget, QGridLayout, QLabel, QTabWidget
 
-import PySide6
-from matplotlib.backends.qt_compat import QtWidgets
-from matplotlib.backends.backend_qtagg import (
-    FigureCanvas, NavigationToolbar2QT as NavigationToolbar)
-from matplotlib.figure import Figure
+from src.pt_scatter_widget import PTScatterWidget
+
+
+class AboutPage(QWidget):
+    def __init__(self, text: str):
+        super().__init__()
+        layout = QGridLayout(self)
+        layout.addWidget(QLabel(f"Hello: {text}"))
+        self.setLayout(layout)
 
 
 class ApplicationWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self._main = QtWidgets.QWidget()
+        self._main = QTabWidget()
         self.setCentralWidget(self._main)
-        layout = QtWidgets.QVBoxLayout(self._main)
-
-        static_canvas = FigureCanvas(Figure(figsize=(5, 3)))
-        self._ax = static_canvas.figure.subplots()
-        x = np.linspace(0, 10, 501)
-        self._ax.plot(x, x * np.sin(x), c="red", label="example")
-        self._ax.legend()
-
-        self.addToolBar(NavigationToolbar(static_canvas, self))
-        layout.addWidget(static_canvas)
+        self._main.addTab(PTScatterWidget(), "PT Scatter")
+        for text in ("second", "third", "fourth", "fifth"):
+            self._main.addTab(AboutPage(text), text.capitalize())
 
 
 if __name__ == "__main__":
