@@ -3,3 +3,4 @@ beautifulsoup4
 numpy
 pandas
 matplotlib
+PySide6
