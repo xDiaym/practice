@@ -3,18 +3,11 @@ from pathlib import Path
 
 import pandas as pd
 from PySide6 import QtWidgets
-from PySide6.QtWidgets import QWidget, QGridLayout, QLabel, QTabWidget
+from PySide6.QtWidgets import QMenuBar, QTabWidget
 
+from src.heat_perception_widget import HeatPerceptionWidget
 from src.minmax_widget import MinMaxWidget
 from src.pt_scatter_widget import PTScatterWidget
-
-
-class AboutPage(QWidget):
-    def __init__(self, text: str):
-        super().__init__()
-        layout = QGridLayout(self)
-        layout.addWidget(QLabel(f"Hello: {text}"))
-        self.setLayout(layout)
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
@@ -29,15 +22,20 @@ class ApplicationWindow(QtWidgets.QMainWindow):
         super().__init__()
         self._main = QTabWidget()
         self.setCentralWidget(self._main)
+        self.setMenuBar(QMenuBar())
 
         df = load_dataset("../datasets/Hydra-L.json")
 
         self._main.addTab(PTScatterWidget(df), "PT Scatter")
         self._main.addTab(
-            MinMaxWidget("Temperature ($^\circ$C)", df.BME280_temp), "MinMax"
+            MinMaxWidget("Temperature ($^\circ$C)", df.BME280_temp),
+            "MinMax",
         )
-        for text in ("third", "fourth", "fifth"):
-            self._main.addTab(AboutPage(text), text.capitalize())
+        df = df.resample("12h").mean()
+        self._main.addTab(
+            HeatPerceptionWidget(df.BME280_temp, df.BME280_humidity),
+            "Heat perception",
+        )
 
 
 if __name__ == "__main__":
