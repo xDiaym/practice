@@ -3,12 +3,20 @@ from pathlib import Path
 
 import pandas as pd
 from PySide6 import QtWidgets
-from PySide6.QtWidgets import QMenuBar, QTabWidget
+from PySide6.QtWidgets import (
+    QMenuBar,
+    QTabWidget,
+    QHBoxLayout,
+    QVBoxLayout,
+    QWidget,
+)
 
 from src.boxplot_widget import BoxplotWidget
+from src.date_range_selector_widget import DataRangeSelectorWidget
 from src.heat_perception_widget import HeatPerceptionWidget
 from src.minmax_widget import MinMaxWidget
 from src.pt_scatter_widget import PTScatterWidget
+from src.step_selector_widget import StepSelectorWidget
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
@@ -18,26 +26,48 @@ def load_dataset(path: Path) -> pd.DataFrame:
     return df
 
 
-class ApplicationWindow(QtWidgets.QMainWindow):
+class MainWidget(QWidget):
     def __init__(self):
         super().__init__()
-        self._main = QTabWidget()
-        self.setCentralWidget(self._main)
-        self.setMenuBar(QMenuBar())
+        self._main = QHBoxLayout()
 
         df = load_dataset("../datasets/Hydra-L.json")
 
-        self._main.addTab(PTScatterWidget(df), "PT Scatter")
-        self._main.addTab(
+        w, lay = QWidget(), QVBoxLayout()
+        sel = StepSelectorWidget()
+        sel.button_clicked.connect(print)
+        lay.addWidget(sel)
+
+        r = DataRangeSelectorWidget()
+        print(df.index.min(), df.index.max())
+        r.set_range(df.index.min(), df.index.max())
+        lay.addWidget(r)
+        w.setLayout(lay)
+        self._main.addWidget(w)
+
+        tab = QTabWidget()
+
+        tab.addTab(PTScatterWidget(df), "PT Scatter")
+        tab.addTab(
             MinMaxWidget("Temperature ($^\circ$C)", df.BME280_temp),
             "MinMax",
         )
-        self._main.addTab(BoxplotWidget(df), "Boxplot")
+        tab.addTab(BoxplotWidget(df), "Boxplot")
         df = df.resample("12h").mean()
-        self._main.addTab(
+        tab.addTab(
             HeatPerceptionWidget(df.BME280_temp, df.BME280_humidity),
             "Heat perception",
         )
+        self._main.addWidget(tab)
+        self.setLayout(self._main)
+
+
+class ApplicationWindow(QtWidgets.QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self._main = MainWidget()
+        self.setCentralWidget(self._main)
+        self.setMenuBar(QMenuBar())
 
 
 if __name__ == "__main__":
