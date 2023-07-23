@@ -11,12 +11,12 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from src.boxplot_widget import BoxplotWidget
-from src.date_range_selector_widget import DataRangeSelectorWidget
-from src.heat_perception_widget import HeatPerceptionWidget
-from src.minmax_widget import MinMaxWidget
-from src.pt_scatter_widget import PTScatterWidget
-from src.step_selector_widget import StepSelectorWidget
+from src.widgets.boxplot_widget import BoxplotWidget
+from src.widgets.date_range_selector_widget import DataRangeSelectorWidget
+from src.widgets.heat_perception_widget import HeatPerceptionWidget
+from src.widgets.minmax_widget import MinMaxWidget
+from src.widgets.pt_scatter_widget import PTScatterWidget
+from src.widgets.step_selector_widget import StepSelectorWidget
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
