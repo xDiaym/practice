@@ -11,12 +11,14 @@ from PySide6.QtWidgets import (
     QWidget,
 )
 
-from src.widgets.boxplot_widget import BoxplotWidget
-from src.widgets.date_range_selector_widget import DataRangeSelectorWidget
-from src.widgets.heat_perception_widget import HeatPerceptionWidget
-from src.widgets.minmax_widget import MinMaxWidget
-from src.widgets.pt_scatter_widget import PTScatterWidget
-from src.widgets.step_selector_widget import StepSelectorWidget
+from src.widgets import (
+    BoxplotWidget,
+    DataRangeSelectorWidget,
+    HeatPerceptionWidget,
+    MinMaxWidget,
+    PTScatterWidget,
+    StepSelectorWidget,
+)
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
@@ -55,7 +57,7 @@ class MainWidget(QWidget):
         tab.addTab(BoxplotWidget(df), "Boxplot")
         df = df.resample("12h").mean()
         tab.addTab(
-            HeatPerceptionWidget(df.BME280_temp, df.BME280_humidity),
+            HeatPerceptionWidget(df),
             "Heat perception",
         )
         self._main.addWidget(tab)
