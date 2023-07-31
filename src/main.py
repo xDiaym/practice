@@ -15,10 +15,10 @@ from src.widgets import (
     BoxplotWidget,
     DataRangeSelectorWidget,
     HeatPerceptionWidget,
-    MinMaxWidget,
     PTScatterWidget,
     StepSelectorWidget,
 )
+from src.widgets.minmax import MinMaxWidget
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
@@ -51,7 +51,7 @@ class MainWidget(QWidget):
 
         tab.addTab(PTScatterWidget(df), "PT Scatter")
         tab.addTab(
-            MinMaxWidget("Temperature ($^\circ$C)", df.BME280_temp),
+            MinMaxWidget(df),
             "MinMax",
         )
         tab.addTab(BoxplotWidget(df), "Boxplot")
@@ -67,8 +67,7 @@ class MainWidget(QWidget):
 class ApplicationWindow(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
-        self._main = MainWidget()
-        self.setCentralWidget(self._main)
+        self.setCentralWidget(MainWidget())
         self.setMenuBar(QMenuBar())
 
 
