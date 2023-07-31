@@ -54,7 +54,6 @@ class HeatPerceptionPlot(QWidget):
 
         ax1.plot(t, label="temperature")
         ax1.plot(eff, label="effective temperature")
-        ax1.set_ylabel(r"Temperature ($^\circ$C)")
 
         x = [convert_labels(x) for x in eff]
         colormap = plt.get_cmap("turbo")

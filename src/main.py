@@ -15,10 +15,11 @@ from src.widgets import (
     BoxplotWidget,
     DataRangeSelectorWidget,
     HeatPerceptionWidget,
-    PTScatterWidget,
+    PTScatterPlot,
     StepSelectorWidget,
 )
 from src.widgets.minmax import MinMaxWidget
+from src.widgets.pt_scatter import PTScatterWidget
 
 
 def load_dataset(path: Path) -> pd.DataFrame:
@@ -41,7 +42,7 @@ class MainWidget(QWidget):
         lay.addWidget(sel)
 
         r = DataRangeSelectorWidget()
-        print(df.index.min(), df.index.max())
+
         r.set_range(df.index.min(), df.index.max())
         lay.addWidget(r)
         w.setLayout(lay)
@@ -49,15 +50,15 @@ class MainWidget(QWidget):
 
         tab = QTabWidget()
 
+        mean_df = df.resample("12h").mean()
         tab.addTab(PTScatterWidget(df), "PT Scatter")
         tab.addTab(
             MinMaxWidget(df),
             "MinMax",
         )
-        tab.addTab(BoxplotWidget(df), "Boxplot")
-        df = df.resample("12h").mean()
+        tab.addTab(BoxplotWidget(df, "12h"), "Boxplot")
         tab.addTab(
-            HeatPerceptionWidget(df),
+            HeatPerceptionWidget(mean_df),
             "Heat perception",
         )
         self._main.addWidget(tab)
